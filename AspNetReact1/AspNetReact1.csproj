@@ -20,6 +20,24 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\components\Positions.tsx" />
+    <None Remove="ClientApp\components\Statements.tsx" />
+    <None Remove="ClientApp\services\IStatementRepos.ts" />
+    <None Remove="ClientApp\services\Statement.ts" />
+    <None Remove="ClientApp\services\StatementClient.ts" />
+    <None Remove="ClientApp\services\StatementInMemory.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\Positions.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Statements.tsx" />
+    <TypeScriptCompile Include="ClientApp\services\IStatementRepos.ts" />
+    <TypeScriptCompile Include="ClientApp\services\Statement.ts" />
+    <TypeScriptCompile Include="ClientApp\services\StatementClient.ts" />
+    <TypeScriptCompile Include="ClientApp\services\StatementInMemory.ts" />
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
