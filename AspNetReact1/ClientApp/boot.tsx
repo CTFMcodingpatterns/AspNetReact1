@@ -15,13 +15,11 @@ import { Statements } from './components/Statements';
 import { IStatementRepos } from './services/IStatementRepos';
 import { StatementInMemory } from './services/StatementInMemory';
 import { StatementClient } from './services/StatementClient';
-//import * as RoutesModule from './routes';
-//let routes = RoutesModule.routes;
 
 function renderApp() {
-    //<BrowserRouter children={routes} basename={baseUrl} />
     const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href')!;
-    const repos: IStatementRepos = new StatementInMemory();
+    const repos: IStatementRepos = new StatementClient();
+    //const repos: IStatementRepos = new StatementInMemory();
 
     ReactDOM.render(
         <AppContainer>
