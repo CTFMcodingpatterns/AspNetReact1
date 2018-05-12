@@ -18,8 +18,8 @@ import { StatementClient } from './services/StatementClient';
 
 function renderApp() {
     const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href')!;
-    const repos: IStatementRepos = new StatementClient();
-    //const repos: IStatementRepos = new StatementInMemory();
+    //const repos: IStatementRepos = new StatementClient();
+    const repos: IStatementRepos = new StatementInMemory();
 
     ReactDOM.render(
         <AppContainer>

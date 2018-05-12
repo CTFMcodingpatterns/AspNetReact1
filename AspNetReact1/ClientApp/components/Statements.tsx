@@ -59,6 +59,8 @@ export class Statements extends React.Component<StatementProps, StatementsState>
                     <th style={{ width: '5%'}}>#</th>
                     <th style={{ width: '20%' }}>Title</th>
                     <th>Description</th>
+                    <th>Choices</th>
+                    <th>Weight</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,6 +69,8 @@ export class Statements extends React.Component<StatementProps, StatementsState>
                         <td>{stmt.order}</td>
                         <td>{stmt.title}</td>
                         <td>{stmt.description}</td>
+                        <td>{stmt.choices && stmt.choices.length}</td>
+                        <td>{stmt.weight}</td>
                     </tr>
                 )}
             </tbody>
