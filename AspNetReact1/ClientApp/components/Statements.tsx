@@ -56,7 +56,9 @@ export class Statements extends React.Component<StatementProps, StatementsState>
         return <table className='table'>
             <thead>
                 <tr>
-                    <th style={{ width: '5%'}}>#</th>
+                    <th>Kind</th>
+                    <th style={{ width: '1%' }}>#</th>
+                    <th style={{ width: '1%'}}>#</th>
                     <th style={{ width: '20%' }}>Title</th>
                     <th>Description</th>
                     <th>Choices</th>
@@ -66,6 +68,8 @@ export class Statements extends React.Component<StatementProps, StatementsState>
             <tbody>
                 {statements.map(stmt =>
                     <tr key={stmt.order}>
+                        <td>{stmt.kind}</td>
+                        <td>{stmt.id}</td>
                         <td>{stmt.order}</td>
                         <td>{stmt.title}</td>
                         <td>{stmt.description}</td>

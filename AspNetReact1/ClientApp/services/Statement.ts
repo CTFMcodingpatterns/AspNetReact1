@@ -1,4 +1,6 @@
 ﻿export interface Statement {
+    kind: string;
+    id: number;
     order: number;
     title: string;
     description: string;

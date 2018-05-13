@@ -1,5 +1,6 @@
 ﻿import { Statement } from './Statement';
 import { IStatementRepos } from './IStatementRepos';
+import { Children } from 'react';
 
 export class StatementInMemory implements IStatementRepos {
 
@@ -11,26 +12,32 @@ export class StatementInMemory implements IStatementRepos {
 
     public static createStatements(): Statement[] {
         const statements: Statement[] = [
-            {
-                order: 1,
-                title: "title01 aaa aaa aaa",
-                description: "description1 bbb bbb bbb bbb bbb bbb bbb bbb bbb from memory class",
-                choices: StatementInMemory.createConsens(),
-                weight: 0
-            },
-            { order: 2, title: "title02", description: "description2 from memory", choices: StatementInMemory.createChoices(5), weight: 0 },
-            { order: 3, title: "title03", description: "description3 from memory", choices: null, weight: 1 },
-            { order: 4, title: "title04", description: "description4 from memory", choices: null, weight: 2 },
-            { order: 5, title: "title05", description: "description5 from memory", choices: null, weight: 3 },
-            { order: 6, title: "title06", description: "description6 from memory", choices: null, weight: 0 },
-            { order: 7, title: "title07", description: "description7 from memory", choices: null, weight: 0 },
-            { order: 8, title: "title08", description: "description8 from memory", choices: null, weight: 0 },
+            StatementInMemory.createMCStatement(1, 1,
+                "title01",
+                "description1 bbb bbb bbb bbb bbb bbb bbb bbb bbb from memory class"),
+            StatementInMemory.createMCStatement(2, 2, "title02", "description2 from memory class"),
+            StatementInMemory.createMCStatement(3, 3, "title03", "description3 from memory class"),
+            StatementInMemory.createMCStatement(4, 4, "title04", "description4 from memory class"),
+            StatementInMemory.createMCStatement(5, 5, "title05", "description5 from memory class"),
         ];
         return statements;
     }
 
+    public static createMCStatement(id: number, order: number, title: string, desc?: string, choices?: string[], weight?: number): Statement {
+        const stmt: Statement = {
+            kind: "multiplechoice",
+            id: id,
+            order: order,
+            title: title,
+            description: desc || null,
+            choices: choices || StatementInMemory.createConsensChoices(),
+            weight: weight || 0
+        };
+        return stmt;
+    }
+
     //TODO: create separate Statement Type
-    public static createConsens(): string[] {
+    public static createConsensChoices(): string[] {
         const choices: string[] = [
             "agree 100%",
             "agree 50%",
@@ -41,7 +48,7 @@ export class StatementInMemory implements IStatementRepos {
         return choices;
     }
 
-    public static createChoices(num: number): string[] {
+    public static createColorChoices(num: number): string[] {
         const choices: string[] = [
             "red",
             "green",
