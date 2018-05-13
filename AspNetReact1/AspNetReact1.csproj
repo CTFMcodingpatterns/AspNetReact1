@@ -5,8 +5,8 @@
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
-    <AssemblyVersion>1.1.0.1</AssemblyVersion>
-    <FileVersion>1.1.0.1</FileVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\Answers.tsx" />
     <None Remove="ClientApp\components\Positions.tsx" />
     <None Remove="ClientApp\components\Statements.tsx" />
+    <None Remove="ClientApp\services\Answer.ts" />
     <None Remove="ClientApp\services\IStatementRepos.ts" />
     <None Remove="ClientApp\services\Statement.ts" />
     <None Remove="ClientApp\services\StatementClient.ts" />
@@ -34,8 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\Answers.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Positions.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Statements.tsx" />
+    <TypeScriptCompile Include="ClientApp\services\Answer.ts" />
     <TypeScriptCompile Include="ClientApp\services\IStatementRepos.ts" />
     <TypeScriptCompile Include="ClientApp\services\Statement.ts" />
     <TypeScriptCompile Include="ClientApp\services\StatementClient.ts" />

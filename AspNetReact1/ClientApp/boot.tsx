@@ -12,6 +12,7 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Positions } from './components/Positions';
 import { Statements } from './components/Statements';
+import { Answers } from './components/Answers';
 import { IStatementRepos } from './services/IStatementRepos';
 import { StatementInMemory } from './services/StatementInMemory';
 import { StatementClient } from './services/StatementClient';
@@ -29,8 +30,10 @@ function renderApp() {
                     <Route path='/counter' component={Counter} />
                     <Route path='/fetchdata' component={FetchData} />
                     <Route path='/positions' component={Positions} />
-                    <Route path='/statements'
+                    <Route path='/questions'
                         render={rtProps => (<Statements routeProps={rtProps} repos={repos} />)} />
+                    <Route path='/answers'
+                        render={rtProps => (<Answers routeProps={rtProps} repos={repos} />)} />
                 </Layout>
             </BrowserRouter>
         </AppContainer>,
