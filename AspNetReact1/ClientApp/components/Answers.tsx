@@ -24,11 +24,15 @@ export class Answers extends React.Component<AnswersProps, AnswersState> {
             answers: [],
             loading: true
         };
-        this.fetchAndSetAnswers();
+        //this.handleShowDetails = this.handleShowDetails.bind(this);
     }
 
-    private fetchAndSetAnswers() {
-        this.props.repos.getStatementsAsync()
+    componentDidMount() {
+        this.fetchAndSetAnswers(this.props.repos);
+    }
+
+    private fetchAndSetAnswers(repos: IStatementRepos) {
+        repos.getStatementsAsync()
             .then(questions => Answers.ToAnswers(questions))
             .then(answers => this.setState({ answers: answers, loading: false }))
             .catch(reason => console.log("reason: " + reason));
@@ -53,14 +57,14 @@ export class Answers extends React.Component<AnswersProps, AnswersState> {
         return answer;
     }
 
-    private static handleShowDetails(): any {
+    private handleShowDetails(): any {
         //TODO
     }
 
     public render() {
         let contents = this.state.loading
-            ? Answers.renderLoading()
-            : Answers.renderTable(this.state.answers);
+            ? this.renderLoading()
+            : this.renderTable(this.state.answers);
 
         return <div>
             <h1>Answers</h1>
@@ -69,11 +73,11 @@ export class Answers extends React.Component<AnswersProps, AnswersState> {
         </div>;
     }
 
-    private static renderLoading() {
+    private renderLoading() {
         return <p><em>Loading Answers...</em></p>;
     }
 
-    private static renderTable(answers: Answer[]) {
+    private renderTable(answers: Answer[]) {
         return <table className='table'>
             <thead>
                 <tr>
